@@ -1,6 +1,13 @@
 // In-memory user storage (replace with database in production)
 import * as bcryptjs from "bcryptjs";
 
+export interface LMSCredentials {
+  lmsId: string;
+  lmsPassword: string;
+  courseId: string;
+  generatedAt: Date;
+}
+
 export interface User {
   id: string;
   email: string;
@@ -8,6 +15,7 @@ export interface User {
   name: string;
   role?: "student" | "instructor" | "admin";
   enrolledCourses?: string[]; // Array of course IDs
+  lmsCredentials?: LMSCredentials[]; // Array of LMS credentials per course
 }
 
 // Mock users database (in production, use a real database)

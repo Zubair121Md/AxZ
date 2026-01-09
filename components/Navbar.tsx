@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Menu, X, Search, ChevronDown, User, LogOut, BookOpen } from "lucide-react";
+import { Menu, X, Search, ChevronDown, User, LogOut, BookOpen, BarChart3 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -324,6 +324,14 @@ export default function Navbar() {
                             <p className="text-xs text-gray-600">{user?.email}</p>
                           </div>
                           <Link
+                            href="/dashboard"
+                            className="flex items-center space-x-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
+                            onClick={() => setShowAccountDropdown(false)}
+                          >
+                            <BarChart3 className="w-4 h-4" />
+                            <span>Dashboard</span>
+                          </Link>
+                          <Link
                             href="/my-courses"
                             className="flex items-center space-x-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
                             onClick={() => setShowAccountDropdown(false)}
@@ -341,7 +349,7 @@ export default function Navbar() {
                           </Link>
                           {user?.role === "admin" && (
                             <Link
-                              href="/admin"
+                              href="/admin/courses"
                               className="flex items-center space-x-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
                               onClick={() => setShowAccountDropdown(false)}
                             >

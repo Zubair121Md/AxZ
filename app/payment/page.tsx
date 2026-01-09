@@ -63,8 +63,9 @@ export default function PaymentPage() {
       });
 
       if (response.ok) {
-        alert(`Payment successful! You have been enrolled in ${course?.title}. Redirecting to your courses...`);
-        router.push(`/my-courses`);
+        const data = await response.json();
+        alert(`Payment successful! You have been enrolled in ${course?.title}. LMS credentials have been sent to your email. Redirecting to course...`);
+        router.push(`/lms/${course?.id}`);
       } else {
         alert("Enrollment failed. Please try again.");
       }

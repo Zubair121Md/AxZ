@@ -119,7 +119,7 @@ export default function MyCoursesPage() {
                     <div className="flex items-center justify-between">
                       <span className="text-sm text-gray-600">{course.duration}</span>
                       <Link
-                        href={`/courses/${course.id}`}
+                        href={`/lms/${course.id}`}
                         className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark transition-colors text-sm"
                       >
                         Continue Learning
